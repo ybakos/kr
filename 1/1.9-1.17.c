@@ -3,7 +3,7 @@
   Copyright: 2009
   Author: Yong Bakos
   Date: 11/10/09 XXXPM
-  Description: page 31
+  Description: (page 31) Write a program that prints lines that are longer than 80 characters.
 */
 #include <stdio.h>
 
