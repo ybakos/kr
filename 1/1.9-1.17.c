@@ -1,25 +1,27 @@
 /*
-  Name: 1.9 1-17
+  Name: 1.9 1-16 
   Copyright: 2009
   Author: Yong Bakos
-  Date: 11/10/09 XXXPM
-  Description: (page 31) Write a program that prints lines that are longer than 80 characters.
+  Date: 17/10/09 02:55PM
+  Description: page 30
 */
 #include <stdio.h>
 
-#define MAXLENGTH 100    // maximum input line size
-#define LOW_THRESHOLD 80 // see exercise description
+#define MAXLENGTH 80  // maximum input line size
 
 int getline(char line[], int maxlength);
 void copy(char from[], char to[]);
 
+// print longest input line
 int main() {
+
   
+ 
+  return 0;
 }
 
 int getline(char s[], int lim) {
-  int c, i;
-  
+  int c, i; 
   for (i = 0; (i < lim - 1) && ((c = getchar()) != EOF) && (c != '\n'); ++i)
     s[i] = c;
   if (c == '\n') {
