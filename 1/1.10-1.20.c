@@ -21,7 +21,6 @@ int main() {
         putchar(' ');
         ++position;
       }
-
     } else if (c == '\n') {
       putchar(c);
       position = 0;
