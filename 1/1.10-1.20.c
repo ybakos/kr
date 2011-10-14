@@ -10,7 +10,7 @@
 #define TAB_WIDTH 8
 
 int main() {
-  int c, numberOfSpaces, position;
+  int c, position;
   position = 0;
   while ( (c = getchar()) != EOF) {
     if (c == '\t') {

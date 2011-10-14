@@ -3,17 +3,14 @@
   Copyright: 2011
   Author: Yong Bakos
   Date: 10/14/11 08:02AM
-  Description: page 34. This program spaces with tabs.
+  Description: page 34. This program spaces with tabs and spaces, where appropriate.
 */
 #include <stdio.h>
 
 #define TAB_WIDTH 8
 
-int getline(char s[], int lim);
-void detab(char s[], int width);
-
 int main() {
-  int c, numberOfSpaces, position;
+  int c, position;
   position = 0;
   while ( (c = getchar()) != EOF) {
     if (c == '\t') {
