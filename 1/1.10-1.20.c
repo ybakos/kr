@@ -9,9 +9,6 @@
 
 #define TAB_WIDTH 8
 
-int getline(char s[], int lim);
-void detab(char s[], int width);
-
 int main() {
   int c, numberOfSpaces, position;
   position = 0;
