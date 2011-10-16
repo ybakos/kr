@@ -11,13 +11,22 @@
 */
 #include <stdio.h>
 
-#define MAXLENGTH 1000
-#define LINEWIDTH 70
+#define MAX_LENGTH 1000
+#define FOLD_WIDTH 30
 
 int getline(char s[], int lim);
 
 int main() {
-
+  int len, cursor;
+  char line[MAX_LENGTH];
+  while ((cursor = len = getline(line, MAX_LENGTH)) > 0 ) {
+    while (cursor > FOLD_WIDTH) {
+      cursor -= cursor % FOLD_WIDTH;
+      while (line[cursor] != ' ') --cursor;
+      line[cursor] = '\n';
+    }
+    printf("%s", line);
+  }
   return 0;
 }
 
