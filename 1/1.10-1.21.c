@@ -5,26 +5,40 @@
   Date: 10/14/11 08:02AM
   Description: page 34. This program spaces with tabs and spaces, where appropriate.
 */
+
 #include <stdio.h>
 
 #define TAB_WIDTH 8
 
 int main() {
-  int c, position;
-  position = 0;
+  int c, cursor, cuedSpaces;
+  cursor = 0;
+  cuedSpaces = 0;
   while ( (c = getchar()) != EOF) {
-    if (c == '\t') {
-      while (position % (TAB_WIDTH) != 0) {
-        putchar(' ');
-        ++position;
+    if (c == ' ') {
+      ++cuedSpaces;
+      if (cursor % TAB_WIDTH == 0) {
+        putchar('\t');
+        cuedSpaces = 0;
       }
+    } else if (c == '\t') {
+      cuedSpaces = 0;
+      putchar('\t');
     } else if (c == '\n') {
+      while (cuedSpaces > 0) {
+        putchar(' ');
+        --cuedSpaces;
+      }
       putchar(c);
-      position = 0;
+      cursor = 0;
     } else {
+      while (cuedSpaces > 0) {
+        putchar(' ');
+        --cuedSpaces;
+      }
       putchar(c);
-      ++position;
     }
+    ++cursor;
   }
 
   return 0;
