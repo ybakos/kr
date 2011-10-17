@@ -17,15 +17,25 @@
 int getline(char s[], int lim);
 
 int main() {
-  int len, cursor;
+  int len, cursor, steps, lastSpaceIndex;
+  steps = cursor = lastSpaceIndex = 0;
   char line[MAX_LENGTH];
-  while ((cursor = len = getline(line, MAX_LENGTH)) > 0 ) {
-    while (cursor > FOLD_WIDTH) {
-      cursor -= cursor % FOLD_WIDTH;
-      while (line[cursor] != ' ') --cursor;
-      line[cursor] = '\n';
+  printf("******************************\n");
+  while ((len = getline(line, MAX_LENGTH)) > 0 ) {
+    while (cursor < len) {
+      while (cursor < len && steps < FOLD_WIDTH) {
+        if (line[cursor] == ' ' || line[cursor] == '\t') {
+          lastSpaceIndex = cursor;
+        }
+        ++cursor;
+        ++steps;
+      }
+      if (lastSpaceIndex != 0) line[lastSpaceIndex] = '\n';
+      steps = 0;
     }
     printf("%s", line);
+    cursor = 0;
+    steps = 0;
   }
   return 0;
 }
